@@ -8,10 +8,12 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 )
-var(
+
+var (
 	DB *sql.DB
 )
-func SetupDatabase(){
+
+func SetupDatabase() {
 	var err error
 	var DSN string = os.Getenv("DB_DSN")
 	DB, err = sql.Open("mysql", DSN)
@@ -25,12 +27,12 @@ func SetupDatabase(){
 	DB.SetMaxIdleConns(10)
 
 	fmt.Println("connect success", DB)
-	rows,err := DB.Query("SELECT text FROM diary")
-	for rows.Next(){
-		var text string
-		rows.Scan(&text)
-		fmt.Println(text)
-	}
+	// rows,err := DB.Query("SELECT text FROM diary")
+	// for rows.Next(){
+	// 	var text string
+	// 	rows.Scan(&text)
+	// 	fmt.Println(text)
+	// }
 	defer DB.Close()
 
 }
