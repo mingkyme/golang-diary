@@ -1,5 +1,16 @@
 doctype
 html
     head
+        title 한줄일기
     body
-        h1 Hi
+        table
+            thead
+                tr
+                    th 한줄 일기
+            tbody
+                tr
+                    td
+                        input
+                tr
+                    td
+                        button 제출

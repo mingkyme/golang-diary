@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"diary.mingky.me/database"
+	"diary.mingky.me/route"
 	"diary.mingky.me/server"
 	"github.com/joho/godotenv"
 )
@@ -15,6 +16,7 @@ func main(){
 	
 	app := server.Create()
 	database.SetupDatabase()
+	route.SetupRoute(app)
 	app.Listen(":3000")
 
 }
